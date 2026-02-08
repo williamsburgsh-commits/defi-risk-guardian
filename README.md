@@ -184,5 +184,3 @@ MIT
 - **Project ID**: 464
 - **Tags**: defi, ai
 - **Status**: Draft → Submit when ready
-
-See [HACKATHON_SETUP.md](./HACKATHON_SETUP.md) for detailed setup and claim instructions.
