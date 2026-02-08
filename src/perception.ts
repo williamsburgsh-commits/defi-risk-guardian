@@ -4,6 +4,7 @@
  * Real implementation would query on-chain program accounts via Solana RPC.
  */
 
+import "dotenv/config";
 import { Connection, PublicKey } from "@solana/web3.js";
 
 export interface Position {

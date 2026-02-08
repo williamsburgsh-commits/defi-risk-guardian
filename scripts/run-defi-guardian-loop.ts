@@ -4,7 +4,8 @@
  * Monitors Solana lending positions every N seconds.
  */
 
-import { runLoopIteration } from "../src/agents/defi-risk-guardian/agent.js";
+import "dotenv/config";
+import { runLoopIteration } from "../src/agent.js";
 
 const INTERVAL_MS =
   Number.parseInt(process.env.DEFI_GUARDIAN_LOOP_INTERVAL_MS || "60000", 10);

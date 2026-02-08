@@ -4,7 +4,8 @@
  * Shows the DEMO SNAPSHOT on first run.
  */
 
-import { runLoopIteration } from "../src/agents/defi-risk-guardian/agent.js";
+import "dotenv/config";
+import { runLoopIteration } from "../src/agent.js";
 
 console.log("Starting DeFi Risk Guardian agent...\n");
 
