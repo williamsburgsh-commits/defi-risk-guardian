@@ -4,14 +4,13 @@
   "description": "Autonomous AI agent monitoring Solana DeFi positions",
   "type": "module",
   "scripts": {
-    "dev": "node --import tsx src/agent.ts",
+    "dev": "node --import tsx scripts/run-defi-guardian.ts",
     "loop": "node --import tsx scripts/run-defi-guardian-loop.ts",
     "test": "vitest"
   },
   "dependencies": {
     "@solana/web3.js": "^1.95.8",
-    "bs58": "^6.0.0",
-    "dotenv": "^17.2.4"
+    "bs58": "^6.0.0"
   },
   "devDependencies": {
     "tsx": "^4.21.0",
