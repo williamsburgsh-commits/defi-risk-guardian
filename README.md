@@ -4,6 +4,8 @@
 
 🏆 **Colosseum Agent Hackathon Submission** - [View on Colosseum](https://colosseum.com/agent-hackathon)
 
+🎥 **[Watch Demo Video](YOUR_VIDEO_LINK_HERE)** ← Replace with your YouTube/Loom link
+
 ---
 
 ## What is this?
@@ -31,12 +33,25 @@ cp .env.example .env
 ```
 
 ### 3. Run
-```bash
-# Single iteration (demo)
-node --import tsx scripts/run-defi-guardian.ts
 
-# Continuous monitoring
-node --import tsx scripts/run-defi-guardian-loop.ts
+**Demo Mode (Mock Data - Shows All Scenarios):**
+```bash
+npm run dev
+```
+
+**Real Mode (Your Wallet - Live Blockchain Data):**
+```bash
+# First, set your wallet in .env:
+# DEFI_GUARDIAN_USE_MOCK=0
+# DEFI_GUARDIAN_WALLET=your_solana_address
+
+npm run dev
+```
+
+**Test Real RPC Connection:**
+```bash
+# Proves Solana blockchain integration
+$env:NODE_OPTIONS="--import tsx"; node scripts/demo-real-mode.ts
 ```
 
 ---
@@ -127,6 +142,17 @@ DEFI_GUARDIAN_USE_MOCK=1
 **Solution**: Continuous monitoring + proactive simulation of mitigations across multiple protocols.
 
 **vs Simple Monitors**: Others just alert. We simulate the exact repay/rebalance action needed.
+
+## Real Blockchain Integration
+
+This agent connects to **real Solana RPC** and queries on-chain program accounts:
+
+- ✅ Connects to Solana mainnet via RPC
+- ✅ Queries Kamino, Marginfi, Solend program accounts  
+- ✅ Parses lending obligation data
+- ✅ Calculates risk from on-chain state
+
+**Demo mode uses mock data** to show all risk scenarios (SAFE/WARNING/CRITICAL) in a controlled environment, perfect for judges to see the complete logic flow. **Real mode works with any Solana wallet** - just set your address in `.env`.
 
 ---
 

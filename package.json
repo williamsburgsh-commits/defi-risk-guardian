@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node --import tsx scripts/run-defi-guardian.ts",
     "loop": "node --import tsx scripts/run-defi-guardian-loop.ts",
-    "test": "vitest"
+    "test": "vitest",
+    "demo:real": "node --import tsx scripts/demo-real-mode.ts"
   },
   "dependencies": {
     "@solana/web3.js": "^1.95.8",
