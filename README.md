@@ -4,7 +4,7 @@
 
 🏆 **Colosseum Agent Hackathon Submission** - [View on Colosseum](https://colosseum.com/agent-hackathon)
 
-🎥 **[Watch Demo Video](YOUR_VIDEO_LINK_HERE)** ← Replace with your YouTube/Loom link
+🎥 **[Watch Demo Video](https://youtu.be/KEDGa3mpQwc)** - See the agent in action!
 
 ---
 
