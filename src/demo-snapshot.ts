@@ -10,6 +10,8 @@ export interface ClassifiedPosition {
   ltv: number;
   healthFactor: number;
   riskLevel: string;
+  collateralValue?: number; // USD, from Position
+  borrowValue?: number; // USD, from Position
 }
 
 export interface MitigationDecision {

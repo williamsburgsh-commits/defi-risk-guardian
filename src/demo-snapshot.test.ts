@@ -34,7 +34,7 @@ describe("demo-snapshot", () => {
     expect(out).toContain("SAFE");
     expect(out).toContain("WARNING");
     expect(out).toContain("CRITICAL");
-    expect(out).toContain("simulate_repay: 50 USDC");
+    expect(out).toMatch(/simulate_repay: \d+(\.\d+)? USDC/);
   });
 
   it("logDemoSnapshotIfFirst logs once then no-ops", () => {

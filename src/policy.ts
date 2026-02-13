@@ -28,6 +28,8 @@ export function evaluate(positions: Position[]): ClassifiedPosition[] {
       ltv,
       healthFactor,
       riskLevel,
+      collateralValue: pos.collateralValue,
+      borrowValue: pos.borrowValue,
     };
   });
 }

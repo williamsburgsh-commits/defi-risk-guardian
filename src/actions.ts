@@ -59,27 +59,27 @@ function decideMitigation(position: ClassifiedPosition): MitigationDecision {
  * Solve for repayAmount: repayAmount = borrow - (collateral / TARGET_HF)
  */
 function calculateRepayAmount(position: ClassifiedPosition): number {
-  // For demo purposes, calculate from LTV
-  // Real implementation would need collateral and borrow values
-  // Approximation: repay enough to bring LTV down to ~50%
+  const { collateralValue, borrowValue } = position;
 
-  // If we know collateral and borrow:
-  // Current borrow implied from LTV: borrow = ltv * collateral
-  // Target borrow for TARGET_HF: targetBorrow = collateral / TARGET_HF
-  // Repay amount: borrow - targetBorrow
+  if (
+    collateralValue != null &&
+    borrowValue != null &&
+    collateralValue > 0 &&
+    borrowValue > 0
+  ) {
+    const targetBorrow = collateralValue / TARGET_HEALTH_FACTOR;
+    let repay = borrowValue - targetBorrow;
+    repay = Math.max(0, Math.min(repay, borrowValue));
+    return Math.max(repay, 10); // Min $10 for demo readability
+  }
 
-  // For demo, use a simple estimate based on LTV
+  // Fallback: LTV-based heuristic when USD values unavailable
   const currentLTV = position.ltv;
-  const targetLTV = 1 / TARGET_HEALTH_FACTOR; // ~0.67 for HF=1.5
-
+  const targetLTV = 1 / TARGET_HEALTH_FACTOR;
   if (currentLTV <= targetLTV) {
     return 0;
   }
-
-  // Rough estimate: repay proportional to excess LTV
-  // This assumes average position size of $300-500
   const excessLTV = currentLTV - targetLTV;
-  const estimatedRepay = excessLTV * 500; // Rough heuristic
-
-  return Math.max(estimatedRepay, 10); // Min $10 repay
+  const estimatedRepay = excessLTV * 500;
+  return Math.max(estimatedRepay, 10);
 }
